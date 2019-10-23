@@ -2,10 +2,8 @@ import path from 'path';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import npm_package from './package.json';
-const isDevelopment = process.env.NODE_ENV === 'development';
-const isProduction = process.env.NODE_ENV === 'production';
 
-module.exports = () => {
+module.exports = (env: {dev?: boolean, prod?: boolean}) => {
   return {
     entry: './index.tsx',
     output: {
@@ -24,16 +22,16 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.tsx$/,
+          test: /\.tsx?$/,
           enforce: 'pre',
           use: [
             'ts-loader',
             {
               loader: 'eslint-loader',
               options: {
-                fix: isProduction,
-                emitWarning: isDevelopment,
-                failOnWarning: isProduction,
+                fix: env.prod,
+                emitWarning: env.dev,
+                failOnWarning: env.prod,
                 configFile: '.eslintrc',
               },
             },
