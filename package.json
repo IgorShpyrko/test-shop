@@ -1,0 +1,76 @@
+{
+  "name": "test_shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --env.dev",
+    "build": "webpack --env.prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorShpyrko/test-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorShpyrko/test-shop/issues"
+  },
+  "homepage": "https://github.com/IgorShpyrko/test-shop#readme",
+  "dependencies": {
+    "@types/react-redux": "^7.1.5",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-redux": "^7.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@babel/register": "^7.6.2",
+    "@types/extract-text-webpack-plugin": "^3.0.4",
+    "@types/html-webpack-plugin": "^3.2.1",
+    "@types/node": "^12.11.5",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.2",
+    "@types/webpack": "^4.39.5",
+    "@types/webpack-dev-server": "^3.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "module-alias": "^2.2.2",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "_moduleAliases": {
+    "@root/*": "dist/*",
+    "@App/*": "dist/App/*",
+    "@Pages/*": "dist/Pages/*",
+    "@Containers/*": "dist/Containers/*",
+    "@Components/*": "dist/Components/*",
+    "@assets/*": "dist/assets/*",
+    "@helpers/*": "dist/helpers/*",
+    "@Hooks/*": "dist/hooks/*",
+    "@services/*": "dist/services/*",
+    "@store/*": "dist/store/*",
+    "@utils/*": "dist/utils/*"
+  }
+}
