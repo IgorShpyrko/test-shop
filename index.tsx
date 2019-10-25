@@ -1,13 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+import { StoreContext } from 'redux-react-hook';
 
 import App from 'App';
 import store from 'store';
 
+import './index.scss';
+
 render(
-  <Provider store={store}>
+  <StoreContext.Provider value={store}>
     <App />
-  </Provider>,
+  </StoreContext.Provider>,
   document.getElementById('root'),
 );

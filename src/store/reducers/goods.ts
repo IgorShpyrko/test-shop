@@ -7,10 +7,10 @@ const initialState: Product[] = [];
 
 export default (state = initialState, action: AnyAction): Product[] => {
   switch (action.type) {
-    case actionTypes.set:
-      return action.payload.goods;
+    case actionTypes.setGoods:
+      return action.payload;
 
-    case actionTypes.remove:
+    case actionTypes.resetGoods:
 
       return state.filter((product: Product) => product.id !== action.payload.id);
 

@@ -33,7 +33,6 @@
       "store": ["store"],
       "utils/*": ["utils/*"],
       "utils": ["utils"]
-    },
-    "plugins": []
+    }
   }
 }

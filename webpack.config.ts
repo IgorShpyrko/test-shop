@@ -3,7 +3,7 @@ import HtmlWebPackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import npm_package from './package.json';
 
-module.exports = (env: {dev?: boolean, prod?: boolean}) => {
+export default (env: {dev?: boolean; prod?: boolean}) => {
   return {
     entry: './index.tsx',
     output: {
@@ -15,9 +15,12 @@ module.exports = (env: {dev?: boolean, prod?: boolean}) => {
       extensions: ['.js', '.ts', '.tsx', '.json'],
       alias: npm_package._moduleAliases || {},
       modules: [
-        path.join(__dirname, "src"),
-        "node_modules"
+        path.join(__dirname, 'src'),
+        'node_modules',
       ],
+    },
+    node: {
+      fs: "empty"
     },
     module: {
       rules: [
@@ -32,7 +35,7 @@ module.exports = (env: {dev?: boolean, prod?: boolean}) => {
                 fix: env.prod,
                 emitWarning: env.dev,
                 failOnWarning: env.prod,
-                configFile: '.eslintrc',
+                configFile: '.eslintrc.json',
               },
             },
           ],
@@ -42,9 +45,9 @@ module.exports = (env: {dev?: boolean, prod?: boolean}) => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
-            }
-          }
+              presets: ['@babel/preset-env'],
+            },
+          },
         },
         {
           test: /\.html$/,
@@ -52,7 +55,21 @@ module.exports = (env: {dev?: boolean, prod?: boolean}) => {
             loader: 'html-loader',
           },
         },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            // Creates `style` nodes from JS strings
+            'style-loader',
+            // Translates CSS into CommonJS
+            'css-loader',
+            // Compiles Sass to CSS
+            'sass-loader',
+          ],
+        },
       ],
+    },
+    devServer: {
+      historyApiFallback: true,
     },
     plugins: [
       new HtmlWebPackPlugin({
@@ -63,5 +80,5 @@ module.exports = (env: {dev?: boolean, prod?: boolean}) => {
         filename: 'css/style.css',
       }),
     ],
-  }
+  };
 };
